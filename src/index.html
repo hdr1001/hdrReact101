@@ -4,11 +4,25 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="vanilla.js" type="text/javascript"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const divVanillaJs = document.getElementById('vanillaJs');
+   
+         const strTn = 'Vanilla Javascript can be used to manipulate the DOM.';
+
+         if(divVanillaJs) {
+            const p = document.createElement('p');
+            const textNode = document.createTextNode(strTn);
+
+            divVanillaJs.appendChild(p.appendChild(textNode));
+         }
+      });
+   </script>
    <title>React basics</title>
 </head>
 <body>
    <p>Good old static HTML. First spec published in 1993.</p>
    <div id="vanillaJs"></div>
+   <div id="rootReact"></div>
 </body>
 </html>
