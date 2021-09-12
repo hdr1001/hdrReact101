@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = () => {
+const AppJsx = (props) => {
    const strMdf = 'my dear friends';
    const langEs = 'es';
    const colorRed = {color: 'red'};
@@ -28,11 +28,20 @@ const App = () => {
    //JSX elements may contain children
    jsxElem.push(<p>My <a href={hdrBlogUrl} title="My blog">blog</a> on GitHub</p>);
 
+   let arrIdx = props.arrIdx;
+
+   if(typeof arrIdx == 'number') {
+      arrIdx = arrIdx % jsxElem.length
+   }
+   else {
+      arrIdx = jsxElem.length - 1
+   }
+
    return (
       <div>
-         {jsxElem[jsxElem.length - 1]}
+         {jsxElem[arrIdx]}
       </div>
    );
 };
 
-export default App;
+export default AppJsx;
