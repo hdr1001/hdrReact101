@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppJsx from './components/AppJsx';
-import AppComposition from './components/AppComposition'
+import AppComposition from './components/AppComposition';
+import { State00, State01, StateXX } from './components/AppState';
 
 //Introducing JSX (https://bit.ly/3E2ruxn)
 ReactDOM.render(<AppJsx />, document.getElementById('rootJsx'));
@@ -15,3 +16,21 @@ setInterval(() => {
 
 //Composing Components (https://bit.ly/3hwzXim)
 ReactDOM.render(<AppComposition starLevel="4" />, document.getElementById('rootComposition'));
+
+//Composing Components (https://bit.ly/3hwzXim)
+ReactDOM.render(<AppComposition starLevel="4" />, document.getElementById('rootComposition'));
+
+const startAt = 10;
+let extnlCount = startAt;
+
+//State and Lifecycle (https://bit.ly/3EuM3Cx)
+let interval = setInterval(() => {
+   ReactDOM.render(<State00 startAt={startAt} counter={extnlCount} />, document.getElementById('rootState00'));
+   ReactDOM.render(<State01 startAt={startAt} counter={extnlCount--} />, document.getElementById('rootState01'));
+
+   if(extnlCount < 0) {
+      clearInterval(interval)
+   }
+}, 1000);
+
+ReactDOM.render(<StateXX />, document.getElementById('rootStateXX'));

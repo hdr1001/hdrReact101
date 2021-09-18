@@ -11,7 +11,7 @@ function HiThere(props) {
       <p>Hi, I am {props.firstName} {props.lastName} &amp;
          this is my <a href={hdrBlogUrl} title="blog">blog</a>
       </p>
-   )
+   );
 }
 
 //(ES6) Class based component
@@ -26,7 +26,7 @@ class HowDoYouFeel extends React.Component {
 }
 
 //React component composition
-function AppComposition(props) {
+export default function AppComposition(props) {
    const starLevel = props.starLevel ? props.starLevel : 5;
 
    return (
@@ -35,6 +35,4 @@ function AppComposition(props) {
          <HowDoYouFeel starLevel={starLevel} />
       </div>
    );
-}
-
-export default AppComposition;
+};
