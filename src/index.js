@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AppJsx from './components/AppJsx';
 import AppComposition from './components/AppComposition';
 import { State00, State01, StateXX } from './components/AppState';
+import CountDown from './components/AppEvents'
 
 //Introducing JSX (https://bit.ly/3E2ruxn)
 ReactDOM.render(<AppJsx />, document.getElementById('rootJsx'));
@@ -34,3 +35,6 @@ let interval = setInterval(() => {
 }, 1000);
 
 ReactDOM.render(<StateXX />, document.getElementById('rootStateXX'));
+
+//Handling Events (https://bit.ly/39g7eKt)
+ReactDOM.render(<CountDown startAt={10} />, document.getElementById('rootCountDown'));
