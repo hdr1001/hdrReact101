@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const author1stName = 'Hans';
 const authorLastName = 'de Rooij';

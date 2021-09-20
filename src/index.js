@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import AppJsx from './components/AppJsx';
 import AppComposition from './components/AppComposition';
 import { State00, State01, StateXX } from './components/AppState';
-import CountDown from './components/AppEvents'
+import CountDown from './components/AppEvents';
+import CondRender from './components/AppCondRender';
 
 //Introducing JSX (https://bit.ly/3E2ruxn)
 ReactDOM.render(<AppJsx />, document.getElementById('rootJsx'));
@@ -38,3 +39,6 @@ ReactDOM.render(<StateXX />, document.getElementById('rootStateXX'));
 
 //Handling Events (https://bit.ly/39g7eKt)
 ReactDOM.render(<CountDown startAt={10} />, document.getElementById('rootCountDown'));
+
+//Conditional Rendering (https://bit.ly/3nPije2)
+ReactDOM.render(<CondRender startAt={10} />, document.getElementById('rootCondRender'));

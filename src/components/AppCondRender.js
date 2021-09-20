@@ -1,10 +1,18 @@
 import React from 'react';
 
-//Countdown component with state, logic & reset button
-export default class CountDown extends React.Component {
+function CRHeader(props) {
+   if(props.active) {
+      return <h1>Conditional rendering component</h1>;
+   }
+   else {
+      return <p>Component for conditional rendering is no longer active</p>;
+   }
+}
+
+export default class CondRender extends React.Component {
    constructor(props) {
       super(props);
-      this.state = {counter: props.startAt};
+      this.state = { counter: props.startAt };
 
       this.resetCount = this.resetCount.bind(this);
    }
@@ -32,10 +40,12 @@ export default class CountDown extends React.Component {
    render() {
       return (
          <div>
-            <p>Component CountDown -&gt; started @ {this.props.startAt}
+            <CRHeader active={this.state.counter} /> 
+            <p>Component CondRender -&gt; started @ {this.props.startAt}
                , current value {this.state.counter} 
-               <a onClick={this.resetCount}> 🔙</a>
+               {this.state.counter > 0 && <a onClick={this.resetCount}> 🔙</a>}
             </p>
+            <p>The component is {this.state.counter ? 'still' : 'no longer'} active</p>
          </div>
       )
    }
