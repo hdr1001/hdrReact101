@@ -6,21 +6,28 @@ const react101 = [
    { doc: 'Components and Props', url: 'https://bit.ly/3hwzXim', code: 'https://bit.ly/3lCn9bG' },
    { doc: 'State and Lifecycle', url: 'https://bit.ly/3EuM3Cx', code: 'https://bit.ly/3CyfdPo' },
    { doc: 'Handling Events', url: 'https://bit.ly/39g7eKt', code: 'https://bit.ly/3nT6uDm' },
-   { doc: 'Conditional Rendering', url: 'https://bit.ly/3nPije2', code: 'https://bit.ly/3EDfZfN' }
+   { doc: 'Conditional Rendering', url: 'https://bit.ly/3nPije2', code: 'https://bit.ly/3EDfZfN' },
+   { doc: 'Lists and Keys', url: 'https://bit.ly/3fIHeZ7', code: 'https://bit.ly/3EOYl9d' }
 ];
 
 export default function React101(props) {
+   function tableReact101() {
+      return (
+         react101.map(row => 
+            <tr key={row.url.slice(row.url.lastIndexOf('/') + 1)}>
+               <td><a href={row.url} title="Jump to React docs">{row.doc}</a></td>
+               <td><a href={row.code} title="My test code">{row.code}</a></td>
+            </tr>
+         )
+      )
+   }
+
    return (
       <table>
       <thead>
          <tr><th>React doc</th><th>My code</th></tr>
       </thead><tbody>
-         {react101.map(row => 
-            <tr key={row.url.slice(row.url.lastIndexOf('/') + 1)}>
-               <td><a href={row.url} title="Jump to React docs">{row.doc}</a></td>
-               <td><a href={row.code} title="My test code">{row.code}</a></td>
-            </tr>
-         )}
+         {tableReact101()}
       </tbody></table>
    )
 };
